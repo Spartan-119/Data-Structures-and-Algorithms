@@ -95,3 +95,14 @@ def insert_at_pos(self, pos, data):
         new_node.set_next(current.get_next())
         current.set_next(new_node)
         self.length += 1
+    
+''' this next part contains the deletion part'''
+
+# method to delete the node at the beginning 
+def delete_at_beginning(self):
+    if self.length == 0:
+        return None
+    
+    else:
+        self.head = self.head.get_next()
+        self.length -= 1
