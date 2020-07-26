@@ -2,7 +2,7 @@
 """
 Created on Sat Jul 25 19:22:42 2020
 
-@author: Abin
+@author: Abin 
 """
 
 class Node:
@@ -42,3 +42,16 @@ def list_length(self):
         current = current.get_next()
     
     return count
+
+# method to insert a new node at the beginning of the LL
+def insert_at_beginning(self, data):
+    new_node = Node() #creating an object of the class Node
+    new_node.set_data(data)
+    
+    if self.length == 0:
+        self.head = new_node
+    else:
+        new_node.set_next(self.head)
+        self.head = new_node
+    
+    self.length += 1
