@@ -2,7 +2,7 @@
 """
 Created on Sat Jul 25 19:22:42 2020
 
-@author: HCL
+@author: Abin
 """
 
 class Node:
@@ -40,3 +40,5 @@ def list_length(self):
     while current != 0:
         count += 1
         current = current.get_next()
+    
+    return count
