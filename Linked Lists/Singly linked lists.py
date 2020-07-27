@@ -121,6 +121,6 @@ def delete_at_end(self):
         
         # set the 2nd last node's pointer to None
         previous_node.set_next(None)
-        self.length += 1
+        self.length -= 1
             
         
