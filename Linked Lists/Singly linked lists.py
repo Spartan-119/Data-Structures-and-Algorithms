@@ -101,8 +101,26 @@ def insert_at_pos(self, pos, data):
 # method to delete the node at the beginning 
 def delete_at_beginning(self):
     if self.length == 0:
-        return None
+        print("The list is empty")
     
     else:
         self.head = self.head.get_next()
         self.length -= 1
+
+# method to delete a node at the end
+def delete_at_end(self):
+    if self.length == 0:
+        print("The list is empty")
+    
+    else:
+        current_node = self.head
+        previous_node = self.head
+        while current_node.get_next() != None:
+            previous_node = current_node
+            current_node = current_node.get_next()
+        
+        # set the 2nd last node's pointer to None
+        previous_node.set_next(None)
+        self.length += 1
+            
+        
