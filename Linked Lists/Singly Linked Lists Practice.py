@@ -14,7 +14,7 @@ class LinkedList:
     def __init__():
         self.head = None
         
-if __main__ == __main__:
+if __main__ == '__main__':
     llist = LinkedList()
     llist.head = Node(1)
     second = Node(2)
