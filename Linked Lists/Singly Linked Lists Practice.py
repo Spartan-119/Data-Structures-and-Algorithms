@@ -103,7 +103,7 @@ if __name__ == '__main__':
     fifth = Node(5)
     
     # Inserting the new node
-    # new_node = Node(239)
+    new_node = Node(239)
     
     # now the linking part
     llist.head.next = second
@@ -111,6 +111,7 @@ if __name__ == '__main__':
     third.next = fourth
     fourth.next = fifth
     
+    # Method to insert a new node at a position 'pos'
     #llist.insert_at_pos(0, new_node)
     
     # deleting the node at the beginning
@@ -120,7 +121,7 @@ if __name__ == '__main__':
     #llist.delete_at_end()
     
     # deleting the node at a position 'pos'
-    llist.delete_at_pos(2)
+    #llist.delete_at_pos(2)
     
     llist.printList()
     print("Length of the list: ", llist.listLength())
