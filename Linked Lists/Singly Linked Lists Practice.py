@@ -37,7 +37,7 @@ class LinkedList:
         if self.head == None:
             print("List is empty")
         
-        elif (pos > llist.listLength()):
+        elif (pos > llist.listLength() or pos <= 0):
             print("Error! Please enter a valid value for position")
             print("Cant perform the insert operation.")
             print("Returning the linked list without inserting")
@@ -69,7 +69,7 @@ if __name__ == '__main__':
     llist.head.next = second
     second.next = third
     
-    llist.insert_at_pos(8, new_node)
+    llist.insert_at_pos(0, new_node)
     
     llist.printList()
     print("Length of the list: ", llist.listLength())
