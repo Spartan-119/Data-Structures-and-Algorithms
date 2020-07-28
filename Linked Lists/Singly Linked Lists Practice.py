@@ -57,19 +57,70 @@ class LinkedList:
             
             new_node.next = current_node
             previous_node.next = new_node
-            
+    
+    '''  DELETING THE NODES '''
+    # Method to delete the node at the beginning
+    def delete_at_beginning(self):
+        temp = self.head
+        temp = temp.next
+        self.head.next = None
+        self.head = temp
+    
+    # Method to delete the node at the end
+    def delete_at_end(self):
+        temp = self.head
         
+        # traverse till  the end
+        while (temp.next != None):
+            previous_node = temp
+            temp = temp.next
+        
+        previous_node.next = None
+    
+    # Method to delete the Node at a position 'pos'
+    def delete_at_pos(self, pos):
+        count = 1
+        temp = self.head
+        
+        # traverse till pos
+        while (count != pos):
+            previous_node = temp
+            temp = temp.next
+            count += 1
+        
+        # first connect the previous node's link to the next
+        # node
+        previous_node.next = temp.next
+        temp.next = None
+    
+    
 if __name__ == '__main__':
     llist = LinkedList()
     llist.head = Node(1)
     second = Node(2)
     third = Node(3)
-    new_node = Node(239)
+    fourth = Node(4)
+    fifth = Node(5)
+    
+    # Inserting the new node
+    # new_node = Node(239)
+    
     # now the linking part
     llist.head.next = second
     second.next = third
+    third.next = fourth
+    fourth.next = fifth
     
-    llist.insert_at_pos(0, new_node)
+    #llist.insert_at_pos(0, new_node)
+    
+    # deleting the node at the beginning
+    #llist.delete_at_beginning()
+    
+    # deleting the node at the end
+    #llist.delete_at_end()
+    
+    # deleting the node at a position 'pos'
+    llist.delete_at_pos(2)
     
     llist.printList()
     print("Length of the list: ", llist.listLength())
