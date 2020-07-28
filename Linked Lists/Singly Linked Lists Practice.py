@@ -13,6 +13,14 @@ class Node:
 class LinkedList:
     def __init__(self):
         self.head = None
+    
+    #traversing through the list while printing
+    def printList(self):
+        temp = self.head # starting from head
+        while(temp):
+            print("Node address: ", temp)
+            print("Node data: ", temp.data)
+            temp = temp.next
         
 if __name__ == '__main__':
     llist = LinkedList()
@@ -24,4 +32,6 @@ if __name__ == '__main__':
     llist.head.next = second
     second.next = third
     
-    # now we will traverse the linked list
+    llist.printList()
+    
+    
