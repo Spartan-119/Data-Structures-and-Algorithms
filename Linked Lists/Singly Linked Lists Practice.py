@@ -22,15 +22,29 @@ class LinkedList:
             print("Node data: ", temp.data)
             temp = temp.next
     
+    # method to print the length of the list
+    def listLength(self):
+        current_node = self.head
+        count = 1
+        while(current_node.next != None):
+            current_node = current_node.next
+            count += 1
+        return count
+    
+    
     # method to insert a node at a position 'pos'
     def insert_at_pos(self, pos, data):
         if self.head == None:
             print("List is empty")
         
-        # assuming pos < length_of_list
+        elif (pos > llist.listLength()):
+            print("Error! Please enter a valid value for position")
+            print("Cant perform the insert operation.")
+            print("Returning the linked list without inserting")
+            print()
+        
+        
         else:
-            
-            
             previous_node = self.head
             current_node = self.head
             count = 1
@@ -55,8 +69,9 @@ if __name__ == '__main__':
     llist.head.next = second
     second.next = third
     
-    llist.insert_at_pos(3, new_node)
+    llist.insert_at_pos(8, new_node)
     
     llist.printList()
+    print("Length of the list: ", llist.listLength())
     
     
