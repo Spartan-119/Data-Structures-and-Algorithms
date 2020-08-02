@@ -100,7 +100,30 @@ class DoublyLinkedLists:
                 temp = temp.next
                 count += 1
             print("Length of the DLL: ", count)
+    
+    
+    ''' DELETION OPERATIONS '''
+    
+    # method to delete the node at the beginning
+    def pop(self):
+        temp = self.head
+        self.head = temp.next
+        temp.prev = None
+        temp.next = None
+        self.head.prev = None
+    
+    # method to delete at the end
+    def delete_at_end(self):
+        temp = self.head
         
+        # traverse till  the end
+        while (temp.next != None):
+            previous_node = temp
+            temp = temp.next
+        
+        previous_node.next = None
+    
+    
 if __name__ == '__main__':
     dll = DoublyLinkedLists()
     dll.head = Node(1)
@@ -134,6 +157,12 @@ if __name__ == '__main__':
     
     # inserting at pos 3
     # dll.insert_at_pos(3, 777)
+    
+    # deleting the node at the beginning
+    # dll.pop()
+    
+    # deleting at the end
+    # dll.delete_at_end()
     
     # printing the list
     dll.printList()
