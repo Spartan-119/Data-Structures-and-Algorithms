@@ -88,6 +88,18 @@ class DoublyLinkedLists:
         while (temp != None):
             print("Node: ", temp.data)
             temp = temp.next
+    
+    ''' PRINTING THE LENGTH OF THE LIST '''
+    def listLength(self):
+        if self.head == None:
+            print("The list is empty")
+        else:
+            count = 0
+            temp = self.head
+            while (temp != None):
+                temp = temp.next
+                count += 1
+            print("Length of the DLL: ", count)
         
 if __name__ == '__main__':
     dll = DoublyLinkedLists()
@@ -113,7 +125,7 @@ if __name__ == '__main__':
     fifth.prev = fourth
     fifth.next = None
     
-    ''' PERFORMING THE OPERATIONS '''
+    ''' PERFORMING INSERTION & DELETION OPERATIONS '''
     # pushing a node
     # dll.push(666)
     
@@ -121,7 +133,10 @@ if __name__ == '__main__':
     # dll.append(555)
     
     # inserting at pos 3
-    dll.insert_at_pos(3, 777)
+    # dll.insert_at_pos(3, 777)
     
     # printing the list
     dll.printList()
+    
+    #printing the list length
+    dll.listLength()
