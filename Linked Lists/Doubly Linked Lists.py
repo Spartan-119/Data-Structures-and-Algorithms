@@ -5,6 +5,8 @@ Practicing Doubly Linked Lists
 
 Created on Tue Jul 28 19:23:44 2020
 
+יְהוָ֖ה אִ֣ישׁ מִלְחָמָ֑ה יְהוָ֖ה שְׁמֽוֹ׃
+
 @author: abin
 """
 class Node:
