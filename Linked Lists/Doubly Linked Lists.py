@@ -10,9 +10,9 @@ Created on Tue Jul 28 19:23:44 2020
 class Node:
     
     # constructor
-    def __init__(self, prev = None, next = None, data = None):
-        self.prev = prev
-        self.next = next
+    def __init__(self, data):
+        self.prev = None
+        self.next = None
         self.data = data
 
 class DoublyLinkedLists:
@@ -25,7 +25,7 @@ class DoublyLinkedLists:
 
     # method to insert at the front
     def push(self, new_data):
-        new_node = Node(None, None, new_data)
+        new_node = Node(new_data)
         
         # checking if the DLL is empty or not
         if self.head == None:
@@ -39,17 +39,33 @@ class DoublyLinkedLists:
     ''' PRINTING THE LIST '''
     def printList(self):
         temp = self.head
-        while (temp.next != None):
+        while (temp != None):
             print("Node: ", temp.data)
             temp = temp.next
         
 if __name__ == '__main__':
     dll = DoublyLinkedLists()
-    dll.head = Node(None, None, 1)
-    second = Node(dll.head, None, 2)
-    third = Node(second, None, 3)
-    fourth = Node(third, None, 4)
-    fifth = Node(fourth, None, 5)
+    dll.head = Node(1)
+    second = Node(2)
+    third = Node(3)
+    fourth = Node(4)
+    fifth = Node(5)
+    
+    # now the linking part
+    dll.head.prev = None
+    dll.head.next = second
+    
+    second.prev = dll.head
+    second.next = third
+    
+    third.prev = second
+    third.next = fourth
+    
+    fourth.prev = third
+    fourth.next = fifth
+    
+    fifth.prev = fourth
+    fifth.next = None
     
     # printing the list
     dll.printList()
