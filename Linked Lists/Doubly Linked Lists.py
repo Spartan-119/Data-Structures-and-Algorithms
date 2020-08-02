@@ -36,6 +36,52 @@ class DoublyLinkedLists:
             self.head.prev = new_node
             self.head = new_node
     
+    # method to insert at the end
+    def append(self, new_data):
+        new_node = Node(new_data)
+        
+        # checking if the DLL is empty or not
+        if self.head == None:
+            print("The list is empty")
+        else:
+            # traverse till the last Node
+            temp = self.head
+            previous_node = self.head
+            
+            while (temp != None):
+                previous_node = temp
+                temp = temp.next
+                
+            
+            new_node.next = None
+            new_node.prev = previous_node            
+            previous_node.next = new_node
+            
+    # method to insert at a position 'pos'
+    def insert_at_pos(self, pos, new_data):
+        
+        new_node = Node(new_data)
+        
+        # checking if the list is empty or not
+        if self.head == None:
+            print("The list is empty")
+        else:
+            # traverse till the required position
+            count = 0
+            temp = self.head
+            previous_node = self.head
+            while (count != pos):
+                previous_node = temp
+                temp = temp.next
+                count += 1
+            
+            prev_prev_node = previous_node.prev
+            
+            new_node.next = previous_node
+            prev_prev_node.next = new_node
+            new_node.prev = prev_prev_node
+            previous_node.prev = new_node
+            
     ''' PRINTING THE LIST '''
     def printList(self):
         temp = self.head
@@ -66,6 +112,16 @@ if __name__ == '__main__':
     
     fifth.prev = fourth
     fifth.next = None
+    
+    ''' PERFORMING THE OPERATIONS '''
+    # pushing a node
+    # dll.push(666)
+    
+    # appending a node
+    # dll.append(555)
+    
+    # inserting at pos 3
+    dll.insert_at_pos(3, 777)
     
     # printing the list
     dll.printList()
