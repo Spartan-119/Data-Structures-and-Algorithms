@@ -127,7 +127,7 @@ class DoublyLinkedLists:
     
     # method to delete a node at position 'pos'
     def delete_at_pos(self, pos):
-        count = 0
+        count = 1
         previous_node = self.head
         current_node = self.head
         
