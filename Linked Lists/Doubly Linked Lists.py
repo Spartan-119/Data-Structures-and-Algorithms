@@ -125,6 +125,23 @@ class DoublyLinkedLists:
         
         previous_node.next = None
     
+    # method to delete a node at position 'pos'
+    def delete_at_pos(self, pos):
+        count = 0
+        previous_node = self.head
+        current_node = self.head
+        
+        # traverse till pos
+        while (count < pos):
+            previous_node = current_node
+            current_node = current_node.next
+            count += 1
+        
+        next_node = current_node.next
+        previous_node.next = next_node
+        next_node.prev = previous_node
+        
+    
     
 if __name__ == '__main__':
     dll = DoublyLinkedLists()
@@ -165,6 +182,9 @@ if __name__ == '__main__':
     
     # deleting at the end
     # dll.delete_at_end()
+    
+    # deleting at pos 3
+    # dll.delete_at_pos(3)
     
     # printing the list
     dll.printList()
