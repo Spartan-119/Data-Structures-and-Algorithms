@@ -113,6 +113,63 @@ class CircularLinkedList:
             
             new_node.next = current_node
             previous_node.next = new_node
+            
+    ''' DELETION OPERATIONS '''
+    
+    # Method to delete the node at the front
+    def pop(self):
+        if self.head == None:
+            print("The list is empty")
+        else:
+            first_node = self.head
+            current_node = self.head
+            current_node = current_node.next
+            
+            # traverse till the last node
+            while (current_node.next != self.head):
+                current_node = current_node.next
+            
+            first_node = first_node.next
+            self.head = first_node
+            current_node.next = first_node
+    
+    # Method to delete at the end
+    def delete_at_end(self):
+        if self.head == None:
+            print("The list is empty")
+        else:
+            current_node = self.head
+            current_node = current_node.next
+            previous_node = current_node
+            
+            # traverse till the last node
+            while(current_node.next != self.head):
+                previous_node = current_node
+                current_node = current_node.next
+            
+            ''' Now the previous_node is the 2nd last Node
+                and current_node is the last node '''
+            
+            previous_node.next = self.head
+            current_node.next = None
+    
+    # Method to delete a node at a given position 'pos'
+    def delete_at_pos(self, pos):
+        if self.head == None:
+            print("The list is empty")
+        else:
+            count = 2
+            current_node = self.head
+            current_node = current_node.next
+                        
+            # traverse till the position 'pos'
+            while (count != pos):
+                previous_node = current_node
+                current_node = current_node.next
+                count += 1
+            
+            previous_node.next = current_node.next
+            current_node.next = None
     
 if __name__ == '__main__':
     cll = CircularLinkedList()
@@ -138,10 +195,19 @@ if __name__ == '__main__':
     # cll.append(666)
     
     # method to insert at a position 'pos'
-    cll.insert_at_pos(3, 777)
+    # cll.insert_at_pos(3, 777)
+    
+    # deleting the first node
+    # cll.pop()
+    
+    # deleting node at the end
+    # cll.delete_at_end()
+    
+    # deleting at pos 3
+    cll.delete_at_pos(3)
     
     # printing the contents of the list
-    cll.printList()
+    # cll.printList()
     
     # Printing the length of the list
     print("Length of the Circular Linked List is: ", cll.listLength())
