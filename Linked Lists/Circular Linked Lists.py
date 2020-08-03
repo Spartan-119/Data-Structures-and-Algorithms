@@ -35,7 +35,7 @@ class CircularLinkedList:
             while(current_node.next != self.head):
                 count +=1
                 current_node = current_node.next
-            print("The length of the Circular Linked List is: ", count)
+            return count
     
     # method to print the contents of the list
     def printList(self):
@@ -86,6 +86,34 @@ class CircularLinkedList:
             current_node.next = new_node
             self.head = new_node
     
+    # method to insert a node at a position 'pos'
+    def insert_at_pos(self, pos, data):
+        
+        new_node = Node(data)
+        if self.head == None:
+            print("List is empty")
+        
+        elif (pos > cll.listLength() or pos <= 0):
+            print("Error! Please enter a valid value for position")
+            print("Cant perform the insert operation.")
+            print("Returning the linked list without inserting")
+            print()
+        
+        
+        else:
+            previous_node = self.head
+            current_node = self.head
+            count = 1
+            
+            
+            while(count != pos):
+                previous_node = current_node
+                current_node = current_node.next
+                count += 1
+            
+            new_node.next = current_node
+            previous_node.next = new_node
+    
 if __name__ == '__main__':
     cll = CircularLinkedList()
     cll.head = Node(1)
@@ -104,13 +132,16 @@ if __name__ == '__main__':
     sixth.next = cll.head
     
     # method to push a node
-    cll.push(555)
+    # cll.push(555)
     
     # method to append a node
     # cll.append(666)
+    
+    # method to insert at a position 'pos'
+    cll.insert_at_pos(3, 777)
     
     # printing the contents of the list
     cll.printList()
     
     # Printing the length of the list
-    cll.listLength()
+    print("Length of the Circular Linked List is: ", cll.listLength())
