@@ -18,6 +18,10 @@ class Node:
 
 class CircularLinkedList:
     
+    ''' IN A CLL, YOU MUST ALWAYS DO
+        current_node = current_node.next
+        before you start the while loop '''
+    
     def __init__(self):
         self.head = None
     
@@ -45,8 +49,43 @@ class CircularLinkedList:
             while(current_node != self.head):
                 print("Node: ", current_node.data)
                 current_node = current_node.next
-                            
-
+    
+    # method to append a node
+    def append(self, data):
+        new_node = Node(data)
+        if (self.head == None):
+            print("The list is empty")
+        else:
+            # traverse till the last node
+            current_node = self.head
+            previous_node = self.head
+            current_node = current_node.next
+            while(current_node != self.head):
+                previous_node = current_node
+                current_node = current_node.next
+            new_node.next = self.head
+            previous_node.next = new_node
+            
+    # method to insert a node at the beginning
+    def push(self, data):
+        new_node = Node(data)
+        if (self.head == None):
+            print("The list is empty")
+        else:
+            current_node = self.head
+            first_node = self.head
+            current_node = current_node.next
+            
+            # traversing till the last node
+            while (current_node.next != self.head):
+                current_node = current_node.next
+            
+            ''' Now you have reached the last node '''
+            
+            new_node.next = first_node            
+            current_node.next = new_node
+            self.head = new_node
+    
 if __name__ == '__main__':
     cll = CircularLinkedList()
     cll.head = Node(1)
@@ -63,6 +102,12 @@ if __name__ == '__main__':
     fourth.next = fifth
     fifth.next = sixth
     sixth.next = cll.head
+    
+    # method to push a node
+    cll.push(555)
+    
+    # method to append a node
+    # cll.append(666)
     
     # printing the contents of the list
     cll.printList()
