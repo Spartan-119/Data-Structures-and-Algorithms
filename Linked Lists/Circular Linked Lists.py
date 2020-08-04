@@ -159,10 +159,11 @@ class CircularLinkedList:
             print("The list is empty")
         elif (pos <= 0 or pos > cll.listLength()):
             print("Please enter a valid value of 'pos'")
+        elif (pos == 1):
+            cll.pop()
         else:
-            count = 2
+            count = 1
             current_node = self.head
-            current_node = current_node.next
                         
             # traverse till the position 'pos'
             while (count != pos):
@@ -206,7 +207,7 @@ if __name__ == '__main__':
     # cll.delete_at_end()
     
     # deleting at pos 3
-    # cll.delete_at_pos(-5)
+    # cll.delete_at_pos(1)
     
     # printing the contents of the list
     cll.printList()
