@@ -157,6 +157,8 @@ class CircularLinkedList:
     def delete_at_pos(self, pos):
         if self.head == None:
             print("The list is empty")
+        elif (pos <= 0 or pos > cll.listLength()):
+            print("Please enter a valid value of 'pos'")
         else:
             count = 2
             current_node = self.head
@@ -204,10 +206,10 @@ if __name__ == '__main__':
     # cll.delete_at_end()
     
     # deleting at pos 3
-    cll.delete_at_pos(3)
+    # cll.delete_at_pos(-5)
     
     # printing the contents of the list
-    # cll.printList()
+    cll.printList()
     
     # Printing the length of the list
     print("Length of the Circular Linked List is: ", cll.listLength())
