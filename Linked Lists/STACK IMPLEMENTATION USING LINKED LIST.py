@@ -4,7 +4,7 @@
 STACK IMPLEMENTATION USING LINKED LIST
 Created on Fri Aug  7 04:50:36 2020
 
-@author: HCL
+@author: Abin
 """
 
 class Node:
