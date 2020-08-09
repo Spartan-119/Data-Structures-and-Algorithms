@@ -45,7 +45,7 @@ class SinglyLinkedList:
         else:
             current_node = self.head
             while current_node:
-                print("Node: ", current_node.data)
+                print(current_node.data, end = " -> ")
                 current_node = current_node.next
     
 if __name__ == '__main__':
@@ -63,8 +63,10 @@ if __name__ == '__main__':
     fourth.next = fifth
     
     print("Length of the Singly Linked List is: ", sll.listLength())
+    print()
     print("Linked List before reversal")
     sll.printList()
+    print()
     print()
     sll.reverse_list_iterative()
     print("Linked List after reversal")
