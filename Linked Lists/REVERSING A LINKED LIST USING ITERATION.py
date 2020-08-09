@@ -63,5 +63,9 @@ if __name__ == '__main__':
     fourth.next = fifth
     
     print("Length of the Singly Linked List is: ", sll.listLength())
+    print("Linked List before reversal")
+    sll.printList()
+    print()
     sll.reverse_list_iterative()
+    print("Linked List after reversal")
     sll.printList()
