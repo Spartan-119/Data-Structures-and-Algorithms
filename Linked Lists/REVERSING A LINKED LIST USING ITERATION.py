@@ -47,6 +47,9 @@ class SinglyLinkedList:
             while current_node:
                 print(current_node.data, end = " -> ")
                 current_node = current_node.next
+            
+            if current_node == None:
+                print("End")
     
 if __name__ == '__main__':
     sll = SinglyLinkedList()
