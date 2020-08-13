@@ -42,11 +42,23 @@ class CircularLinkedList:
             current_node.next = first_node
     
     #Method to delete a Node at a position 'pos'
-    def delete_at_pos(self, pos):
+    def delete(self, pos):
         if self.head == None:
             print("The list is empty")
-        elif (pos <= 0 or pos > cll.listLength()):
-            print("Please enter a valid value of 'pos'")
+        else:
+            if (pos == 1 or pos == 0): self.pop()
+            
+            while
+        
+        '''
+        elif (pos >= self.listLength()):
+            while (pos > self.listLength()):
+                pos = pos % self.listLength()
+            if (pos == 0):
+                self.pop()
+            else:
+                self.delete(pos)
+            
         elif (pos == 1):
             cll.pop()
         else:
@@ -61,10 +73,27 @@ class CircularLinkedList:
             
             previous_node.next = current_node.next
             current_node.next = None
+            '''
+    # Method to return the length of the list
+    def listLength(self):
+        if self.head == None:
+            print("The list is empty")
+        else:
+            current_node = self.head
+            count = 1
+            while(current_node.next != self.head):
+                count +=1
+                current_node = current_node.next
+            return count
     
     # Method implementing the Josephus logic
     def Josephus(self, jump):
+        while (self.listLength() != 1):
+            self.delete(jump)
+            print("Length of the list is: ", self.listLength())
+            #self.printList()
         
+        return self.head.data
         
 if __name__ == "__main__":
     cll = CircularLinkedList()
@@ -84,3 +113,6 @@ if __name__ == "__main__":
     fifth.next = sixth
     sixth.next = seventh
     seventh.next = cll.head
+    
+    #print("Length of the list is: ", cll.listLength())
+    print("Data of Node to survive is: ", cll.Josephus(2))
