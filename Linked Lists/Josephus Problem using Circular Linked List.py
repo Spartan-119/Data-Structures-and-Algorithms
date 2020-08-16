@@ -41,39 +41,19 @@ class CircularLinkedList:
             self.head = first_node
             current_node.next = first_node
     
-    #Method to delete a Node at a position 'pos'
-    def delete(self, pos):
-        if self.head == None:
-            print("The list is empty")
+    #Method to delete a particular Node
+    def remove_node(self, node):
+        if self.head.next == self.head:
+            self.head = None
         else:
-            if (pos == 1 or pos == 0): self.pop()
+            current = self.head
+            while(current.next != node):
+                current = current.next
             
-            while
-        
-        '''
-        elif (pos >= self.listLength()):
-            while (pos > self.listLength()):
-                pos = pos % self.listLength()
-            if (pos == 0):
-                self.pop()
-            else:
-                self.delete(pos)
+            current.next = node.next
+            if self.head == node:
+                self.head = node.next
             
-        elif (pos == 1):
-            cll.pop()
-        else:
-            count = 1
-            current_node = self.head
-                        
-            # traverse till the position 'pos'
-            while (count != pos):
-                previous_node = current_node
-                current_node = current_node.next
-                count += 1
-            
-            previous_node.next = current_node.next
-            current_node.next = None
-            '''
     # Method to return the length of the list
     def listLength(self):
         if self.head == None:
@@ -86,14 +66,33 @@ class CircularLinkedList:
                 current_node = current_node.next
             return count
     
+    # Method to get a node
+    def get_node(self, index, start):
+        if self.head is None:
+            return None
+        current = start
+        for i in range(index):
+            current = current.next
+        return current
+    
+    # method to check if the CLL is left with 1 node
+    def has_one_node(self, cll):
+        if cll.head.next == cll.head:
+            return True
+        else:
+            return False
+    
     # Method implementing the Josephus logic
-    def Josephus(self, jump):
-        while (self.listLength() != 1):
-            self.delete(jump)
-            print("Length of the list is: ", self.listLength())
-            #self.printList()
+    def Josephus(self, k):
+        if self.head is None:
+            return None
+        start = self.head
         
-        return self.head.data
+        while not self.has_one_node(cll):
+            to_remove = self.get_node(k - 1, start)
+            start = to_remove.next
+            self.remove_node(to_remove)
+        return self.head.data   
         
 if __name__ == "__main__":
     cll = CircularLinkedList()
@@ -115,4 +114,4 @@ if __name__ == "__main__":
     seventh.next = cll.head
     
     #print("Length of the list is: ", cll.listLength())
-    print("Data of Node to survive is: ", cll.Josephus(2))
+    print("Data of Node to survive is: ", cll.Josephus(3))
