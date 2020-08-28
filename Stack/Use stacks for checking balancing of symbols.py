@@ -1,68 +1,61 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+Implemented Stacks using Lists
 Use stacks for checking balancing of symbols
 
 Created on Thu Aug 27 09:20:00 2020
 
 @author: Abin
 """
-
-class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-
 class Stack:
     def __init__(self):
-        self.head = None
+        self.items = []
     
-    # method to check if the Stack is empty or not
-    def isEmpty(self):
-        if self.head == None:
-            return True
-        else:
-            return False
+    def push(self, item):
+        self.items.append(item)
     
-    # Method to push a new node
-    # Note here that the new node must be 
-    # added at the top
-    def push(self, data):
-        if self.head == None:
-            self.head = Node(data)
-        else:
-            new_node = Node(data)
-            new_node.next = self.head
-            self.head = new_node
-    
-    # Method to remove the top element of the stack
-    # that is the current element
     def pop(self):
-        if self.head == None:
-            print("The stack is empty")
-        else:
-            first_element =  self.head
-            self.head = self.head.next
-            first_element.next = None
+        return self.items.pop()
     
-    # Method to returnt the head of the Node
-    # OR the first top element of the Stack
-    def peek(self):
-        if self.head == None:
-            print("The Stack is empty")
-            return None
-        else:
-            print(self.head.data)
-    
-    # Method to print out the stack
     def display(self):
-        if self.head == None:
-            print("The Stack is empty")
-        else:
-            current_node = self.head
-            while (current_node != None):
-                print(current_node.data)
-                current_node = current_node.next
+        return self.items
                 
-    def CheckBalanceSymbol(input):
+    def is_empty(self):
+        return self.items == []
+open_list = ["(", "{", "["]
+close_list = [")", "}", "]"]
+
+def is_match(p1, p2):
+    if p1 == "(" and p2 == ")":
+        return True
+    elif p1 == "{" and p2 == "}":
+        return True
+    elif p1 == "[" and p2 == "]":
+        return True
+    else:
+        return False
+
+def check(myStr):
+    s = Stack()
+    is_balanced = True
+    index = 0
+    
+    while(index < len(myStr) and is_balanced):
+        symbol = myStr[index]
+        if symbol in open_list:
+            s.push(symbol)
+        else:
+            top = s.pop()
+            if not  is_match(top, symbol):
+                is_balanced = False
         
+        index += 1
+    
+    if s.is_empty() and is_balanced:
+        return True
+    else:
+        return False
+
+string = "()(()[()])"
+print(check(string))
