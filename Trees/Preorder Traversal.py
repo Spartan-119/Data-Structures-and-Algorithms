@@ -63,3 +63,31 @@ about the right subtrees back in the reverse order.
 2. Traverse the left subtree in Preorder
 3. Traverse the right subtree in Preorder'''
 
+# the nodes of the tree would be visited in the order: 1 2 4 5 3 6 7
+
+# PREORDER RECURSIVE TRAVEL
+def preorder_recursive(root, result):
+    if not root:
+        return
+    
+    result.append(root.data)
+    preorder_recursive(root.left, result)
+    preorder_recursive(root.right, result)
+
+# PREORDER NON RECURSIVE TRAVEL
+def preorder_iterative(root, result):
+    if not root:
+        return
+    
+    stack = []
+    stack.append(root)
+    
+    while stack:
+        node = stack.pop()
+        result.append(node.data)
+        
+        if node.right:
+            stack.append(node.right)
+        
+        if node.left:
+            stack.append(node.left)
