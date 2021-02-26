@@ -10,6 +10,18 @@ class BinaryTreeNode:
         self.left = None
         self.right = None
         self.data = data
+    
+    def set_data(self, data):
+        self.data = data
+    
+    def get_data(self):
+        return self.data
+    
+    def get_left(self):
+        return self.left
+    
+    def get_right(self):
+        return self.right
 
 # creating nodes now
 
@@ -91,3 +103,5 @@ def preorder_iterative(root, result):
         
         if node.left:
             stack.append(node.left)
+
+print(root_node)
