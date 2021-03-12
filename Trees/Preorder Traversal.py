@@ -52,14 +52,13 @@ root_node.right = BinaryTreeNode(3)
        /       \
       2          3
     /   \       /  \
-   4    None  None  None
-  /  \
-None None'''
+   4    5     6     7 
+'''
 
 root_node.left.left = BinaryTreeNode(4)
 root_node.left.right = BinaryTreeNode(5)
 root_node.right.left = BinaryTreeNode(6)
-root_node.right.right = BinaryTreeNode(5)
+root_node.right.right = BinaryTreeNode(7)
 
 # pre-order traversal
 ''' in preorder traversal, each node is processed
@@ -82,10 +81,12 @@ def preorder_recursive(root, result):
     if not root:
         return
     
-    result.append(root.data)
-    preorder_recursive(root.left, result)
-    preorder_recursive(root.right, result)
-
+    else:
+        result.append(root.data)
+        preorder_recursive(root.left, result)
+        preorder_recursive(root.right, result)
+        print(result)
+    
 # PREORDER NON RECURSIVE TRAVEL
 def preorder_iterative(root, result):
     if not root:
@@ -103,5 +104,7 @@ def preorder_iterative(root, result):
         
         if node.left:
             stack.append(node.left)
+    
+    print(result)
 
-print(root_node)
+preorder_iterative(root_node, [])
