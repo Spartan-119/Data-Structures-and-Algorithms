@@ -34,8 +34,29 @@ class Stack:
             raise Exception('Cannot perform the pop operation. The stack is empty!')
         else:
             first_element = self.head
-            self.head = self.head.head          # updating the head's link
+            self.head = first_element.next      # updating the head's link
             first_element.next = None           # disconnecting the first element from the linked list
     
+    def print_stack(self):
+        '''method to print all the elements in the stack.'''
+        if self.head == None:
+            raise Exception('NaN: The stack is empty!')    
+        current = self.head
+        while current:
+            print(current.data)
+            current = current.next
 
-
+    def peek(self):
+        '''method to print the top-most element in the stack.'''
+        if self.head == None:
+            raise Exception('The stack is empty!')
+        print(self.head.data)   
+        
+# the driver function
+if __name__ == '__main__':
+    stack = Stack()
+    stack.push(1)
+    stack.push(2)
+    stack.push(3)
+    stack.push(4)
+    stack.push(5)
