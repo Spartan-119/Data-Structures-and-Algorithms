@@ -31,6 +31,23 @@ class LinkedList:
             current_node = current_node.next    # update the current node
 
         return False                            # return False if there is no loop
+
+    def detect_loop_floyd(self) -> bool:
+        '''Floyd's cycle finding algorithm:
+        1. Traverse linked list using two pointers.
+        2. Move one pointer(slow_p) by one and another pointer(fast_p) by two.
+           If these pointers meet at the same node then there is a loop. 
+        3 .If pointers do not meet then linked list doesn’t have a loop.'''
+        slow_p = self.head
+        fast_p = self.head
+        while(fast_p):                          # running the while loop using the fast pointer since it'd reach the end first
+            slow_p = slow_p.next                # moving the slow pointer by one
+            fast_p = fast_p.next.next           # moving the fast pointer by two
+            if fast_p == slow_p:
+                return True
+            
+        return False
+
             
 
 ##############
@@ -42,8 +59,8 @@ if __name__ == '__main__':
         ll.push(i)
     
     ll.head.next.next.next = ll.head           # creating a loop    
-    ll.print_list()
-    if ll.detect_loop():
+    #ll.print_list()
+    if ll.detect_loop_floyd():
         print('A loop is present.')
     else:
         print('No loop is present.')
