@@ -40,7 +40,7 @@ class LinkedList:
         3 .If pointers do not meet then linked list doesn’t have a loop.'''
         slow_p = self.head
         fast_p = self.head
-        while(fast_p):                          # running the while loop using the fast pointer since it'd reach the end first
+        while(slow_p and fast_p and fast_p.next):                          # running the while loop using the fast pointer since it'd reach the end first
             slow_p = slow_p.next                # moving the slow pointer by one
             fast_p = fast_p.next.next           # moving the fast pointer by two
             if fast_p == slow_p:
@@ -58,7 +58,7 @@ if __name__ == '__main__':
     for i in range(1,6):                       # populating the linked list
         ll.push(i)
     
-    ll.head.next.next.next = ll.head           # creating a loop    
+    #ll.head.next.next.next = ll.head           # creating a loop    
     #ll.print_list()
     if ll.detect_loop_floyd():
         print('A loop is present.')
