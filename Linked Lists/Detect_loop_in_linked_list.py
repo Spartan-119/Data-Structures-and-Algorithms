@@ -32,7 +32,7 @@ class LinkedList:
 
         return False                            # return False if there is no loop
 
-    def detect_loop_floyd(self) -> bool:
+    """def detect_loop_floyd(self) -> bool:
         '''Floyd's cycle finding algorithm:
         1. Traverse linked list using two pointers.
         2. Move one pointer(slow_p) by one and another pointer(fast_p) by two.
@@ -47,7 +47,7 @@ class LinkedList:
                 return True
             
         return False
-
+"""
             
 
 ##############
@@ -58,9 +58,68 @@ if __name__ == '__main__':
     for i in range(1,6):                       # populating the linked list
         ll.push(i)
     
-    #ll.head.next.next.next = ll.head           # creating a loop    
+    ll.head.next.next.next = ll.head           # creating a loop    
     #ll.print_list()
-    if ll.detect_loop_floyd():
+    if ll.detect_loop():
         print('A loop is present.')
     else:
         print('No loop is present.')
+
+
+'''# Python program to detect loop in the linked list
+
+# Node class
+
+
+class Node:
+
+	# Constructor to initialize the node object
+	def __init__(self, data):
+		self.data = data
+		self.next = None
+
+
+class LinkedList:
+
+	# Function to initialize head
+	def __init__(self):
+		self.head = None
+
+	# Function to insert a new node at the beginning
+	def push(self, new_data):
+		new_node = Node(new_data)
+		new_node.next = self.head
+		self.head = new_node
+
+	# Utility function to print it the linked LinkedList
+	def printList(self):
+		temp = self.head
+		while(temp):
+			print(temp.data)
+			temp = temp.next
+
+	def detectLoop(self):
+		slow_p = self.head
+		fast_p = self.head
+		while(fast_p):
+			slow_p = slow_p.next
+			fast_p = fast_p.next.next
+			if slow_p == fast_p:
+				return 1
+		return 0
+
+
+# Driver program for testing
+llist = LinkedList()
+llist.push(20)
+llist.push(4)
+llist.push(15)
+llist.push(10)
+
+# Create a loop for testing
+#llist.head.next.next.next.next = llist.head
+if(llist.detectLoop()):
+	print("Found Loop")
+else:
+	print("No Loop")
+'''
