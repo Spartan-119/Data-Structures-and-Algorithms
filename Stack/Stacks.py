@@ -16,6 +16,16 @@ class Stack:
         '''prints the stack with the last element at the top, and the first element at the bottom.'''
         for data in range(len(self.stack) - 1, -1, -1):
             print(self.stack[data])
+        
+    def length(self) -> int:
+        '''returns the length of the stack.'''
+        return len(self.stack)
+    
+    def is_even(self) -> bool:
+        if self.length() % 2 == 0:
+            return True
+        else:
+            return False
 
 ############################################################
 # The driver class
