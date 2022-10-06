@@ -30,7 +30,7 @@ class TwoStacks:
             raise Exception('Stack2 Overflow!')
     
     def pop1(self):
-        if self.p1 < 0:
+        if self.p1 <= 0:
             raise Exception('Stack1 Underflow!')
         self.p1 -= 1
         res = self.stack[self.p1]
@@ -38,7 +38,7 @@ class TwoStacks:
         return res
     
     def pop2(self):
-        if self.p2 > -1:
+        if self.p2 >= -1:
             raise Exception('Stack2 Underflow!')
         self.p2 += 1
         res = self.stack[self.p2]
@@ -66,10 +66,46 @@ if __name__ == '__main__':
 
     #print(s.pop1())
     #s.print_stacks()
-    s.pop1()
-    s.pop1()
-    s.pop1()
-    s.pop1()
-    
+    s.pop2()
     s.print_stacks()
-    
+    print()
+    s.pop2()
+    s.print_stacks()
+    print()
+    s.pop2()
+    s.print_stacks()
+    print()
+    s.pop2()
+
+    """Output:
+    2
+    4
+    6
+    5
+    3
+    1
+
+    2
+    4
+    6
+    None
+    3
+    1
+
+    2
+    4
+    6
+    None
+    None
+    1
+
+    2
+    4
+    6
+    None
+    None
+    None
+
+    Exception: Stack1 Underflow!
+    """
+        
