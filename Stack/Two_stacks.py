@@ -66,16 +66,16 @@ if __name__ == '__main__':
 
     #print(s.pop1())
     #s.print_stacks()
-    s.pop2()
+    s.pop1()
     s.print_stacks()
     print()
-    s.pop2()
+    s.pop1()
     s.print_stacks()
     print()
-    s.pop2()
+    s.pop1()
     s.print_stacks()
     print()
-    s.pop2()
+    s.pop1()
 
     """Output:
     2
@@ -105,6 +105,7 @@ if __name__ == '__main__':
     None
     None
     None
+
 
     Exception: Stack1 Underflow!
     """
