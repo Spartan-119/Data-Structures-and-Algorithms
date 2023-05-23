@@ -5,7 +5,7 @@ To access the queue, we are only allowed to use the methods of queue ADT.
 
 class Stack(object):
     def __init__(self, limit = 10):
-        self.stk = 10
+        self.stk = []
         self.limit = limit
 
     def is_empty(self):
@@ -39,7 +39,7 @@ class Stack(object):
 
 # Node of a singly linked list
 class Node:
-    def __init__(self, data = None, next = None) -> None:
+    def __init__(self, data = None, next = None):
         self.data = data
         self.next = next
         self.last = None
@@ -101,7 +101,6 @@ class Queue(object):
             print('Sorry, the queue is empty!')
             raise IndexError
         result = self.rear.data
-        self.rear = self.rear.data
         self.rear = self.rear.last
         self.size -= 1
         return result
@@ -130,3 +129,21 @@ while not auxStack.is_empty():
 
 for i in range(5):
     print(que.de_queue())
+
+
+'''
+Output:
+Stack after Push =====>
+[0, 1]
+Stack after Push =====>
+[0, 1, 2]
+Stack after Push =====>
+[0, 1, 2, 3]
+Stack after Push =====>
+[0, 1, 2, 3, 4]
+4
+3
+2
+1
+0
+'''
