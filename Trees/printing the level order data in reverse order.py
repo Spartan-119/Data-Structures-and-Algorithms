@@ -34,7 +34,12 @@ root.left = Node(2)
 root.right = Node(3)
 root.left.left = Node(4)
 root.left.right = Node(5)
+root.right.left = Node(6)
+root.right.right = Node(7)
 
 # Get and print the reversed level order data
 reversed_level_order = reverse_level_order(root)
 print("Reversed Level Order Data:", reversed_level_order)
+
+# Output:
+# Reversed Level Order Data: [[4, 5, 6, 7], [2, 3], [1]]
